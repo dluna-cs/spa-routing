@@ -1,0 +1,36 @@
+<html>
+  <head></head>
+  </head>
+  <body>
+    <div id="home" style="display:none">
+      HOME View!
+      <button id="goToList">Go to list by button</button>
+      <a href="#list">go to list by link</a>
+    </div>
+    <div id="list" style="display:none">List</div>
+    <div id="detail" style="display:none">Detail</div>
+
+    <div id="notFound" style="display:none">Not Found</div>
+
+    <script src="./router.js"></script>
+
+    <script>
+      const goToList = document.querySelector('#home #goToList');
+      goToList.addEventListener('click', () => Router.goTo('list'));
+
+      Router.register('home', document.querySelector('#home'));
+      Router.register('list', document.querySelector('#list'));
+      Router.register('detail', document.querySelector('#detail'));
+      Router.register('*', document.querySelector('#home'));
+
+      // Last generation of routers
+      Router.register('xxx', async () => {
+        // load assets
+        // bootstrap component
+        // mount it into the DOM
+      });
+      
+      Router.init();
+    </script>
+  </body>
+</html>
